@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Help Your Snowboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src = "logo.png" class="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="snowboards.html">Snowboards</a></li>
+                <li><a href="help_size.html">Size Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+    </div>
+
+    <div class="content">
+        <h1>Find your snowboard size</h1>
+
+        <form action="/url" method="GET">
+            <p>Lets begin by putting your hight in cm</p>
+        </form>
+        <div class="inputbox">
+            <input type="text" id="userHight" placeholder="Enter your hight">
+        </div>
+
+        <div>
+            <button type="button" id="button1"><span></span>Calculate</button>
+        </div>
+
+        <p1 class="output" id="output1" >----</p1>        
+    </div>
+
+    <script>
+        const text1 = document.getElementById('userHight')
+        const button1 = document.getElementById('button1')
+        const output = document.getElementById('output1')
+
+        function CalculateSnowboardSize()
+        {
+            if(text1.value < 300 && text1.value > 0 )
+            {
+                if(text1.value > 170)
+                {
+                    output.innerHTML = 160
+                }
+                else if(text1.value < 130)
+                {
+                    output.innerHTML = 130
+                }
+                else
+                {
+                    output.innerHTML = Math.round(text1.value * 0.90);
+                }
+            }
+            else
+            {
+                output.innerHTML = "Eror" ;
+            }
+        }
+
+        button1.addEventListener('click',CalculateSnowboardSize);
+
+    </script>
+
+</body>
+</html>
